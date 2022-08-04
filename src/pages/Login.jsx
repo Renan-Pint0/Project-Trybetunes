@@ -41,7 +41,7 @@ class Login extends Component {
             type="text"
             name="name-input"
             data-testid="login-name-input"
-            placeholder="User"
+            placeholder="Username"
             onChange={ this.buttonCondition }
           />
           <button
@@ -52,7 +52,7 @@ class Login extends Component {
           >
             Entrar
           </button>
-          {loading ? <Loading /> : ''}
+          {loading && <Loading /> }
         </div>
       );
     }
