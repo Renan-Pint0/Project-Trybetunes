@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
+import { addSong } from '../services/favoriteSongsAPI';
+import Loading from './Loading';
 
 class Album extends Component {
   constructor() {
@@ -12,6 +14,7 @@ class Album extends Component {
       artistName: '',
       albumName: '',
       musics: [],
+      loading: false,
     };
   }
 
@@ -29,11 +32,18 @@ class Album extends Component {
         }));
       }
     });
-    console.log(this.props);
+    console.log(response);
+  }
+
+  favoriteSongs = async () => {
+    const { musics } = this.state;
+    this.setState({ loading: true });
+    await addSong(musics);
+    this.setState({ loading: false });
   }
 
   render() {
-    const { artistName, albumName, musics } = this.state;
+    const { artistName, albumName, musics, loading } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -45,8 +55,11 @@ class Album extends Component {
             Image={ music.artworkUrl100 }
             Name={ music.trackName }
             audioPreview={ music.previewUrl }
+            id={ music.trackId }
+            change={ this.favoriteSongs }
           />))
         }
+        {loading && <Loading />}
       </div>
     );
   }
