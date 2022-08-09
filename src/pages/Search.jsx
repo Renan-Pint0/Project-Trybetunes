@@ -25,7 +25,7 @@ class Search extends Component {
     const albuns = await searchAlbumsAPI(artistAlbumName);
     this.setState({ nameToRender: artistAlbumName });
     this.setState({ loading: false, albuns, artistAlbumName: '' });
-    console.log(albuns);
+    // console.log(albuns);
   }
 
   buttonCondition({ target }) {
