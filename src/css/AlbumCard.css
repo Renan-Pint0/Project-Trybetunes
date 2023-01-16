@@ -1,0 +1,14 @@
+.albums {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.album {
+  align-items: center;
+  display: flex;
+}
+
+.name {
+  width: 200px;
+}
+

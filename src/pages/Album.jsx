@@ -46,18 +46,20 @@ class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <p data-testid="artist-name">{artistName}</p>
+        <p data-testid="artist-name" className="album">{artistName}</p>
         <p data-testid="album-name">{albumName}</p>
-        {
-          musics.map((music) => (<MusicCard
-            key={ music.trackId }
-            Image={ music.artworkUrl100 }
-            Name={ music.trackName }
-            audioPreview={ music.previewUrl }
-            id={ music.trackId }
-            favMusics={ favMusics }
-          />))
-        }
+        <div>
+          {
+            musics.map((music) => (<MusicCard
+              key={ music.trackId }
+              Image={ music.artworkUrl100 }
+              Name={ music.trackName }
+              audioPreview={ music.previewUrl }
+              id={ music.trackId }
+              favMusics={ favMusics }
+            />))
+          }
+        </div>
         {loading && <Loading />}
       </div>
     );

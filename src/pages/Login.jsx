@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import '../css/Login.css';
 
 class Login extends Component {
   constructor() {
@@ -36,7 +37,7 @@ class Login extends Component {
     render() {
       const { disabledButton, loading } = this.state;
       return (
-        <div data-testid="page-login">
+        <div data-testid="page-login" className="login">
           <input
             type="text"
             name="name-input"

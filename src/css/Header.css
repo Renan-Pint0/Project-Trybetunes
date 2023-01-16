@@ -1,0 +1,13 @@
+.header {
+  align-items: center;
+  background-color: greenyellow;
+  display: flex;
+  justify-content: space-around;
+  padding: 1%;
+  padding-right: 5%;
+}
+
+.header-user-name {
+  display: flex;
+  justify-content: flex-end;
+}

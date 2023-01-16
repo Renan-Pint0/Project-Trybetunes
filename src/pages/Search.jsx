@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 import AlbumCard from './AlbumCard';
+import '../css/Search.css';
 
 class Search extends Component {
   constructor() {
@@ -76,14 +77,16 @@ class Search extends Component {
                 <p>
                   Resultado de álbuns de:
                   {` ${nameToRender}`}
-                  {albuns.map((album) => (
-                    <AlbumCard
-                      key={ album.collectionId }
-                      albumImage={ album.artworkUrl100 }
-                      albumName={ album.collectionName }
-                      id={ album.collectionId }
-                    />
-                  ))}
+                  <div className="albumResult">
+                    {albuns.map((album) => (
+                      <AlbumCard
+                        key={ album.collectionId }
+                        albumImage={ album.artworkUrl100 }
+                        albumName={ album.collectionName }
+                        id={ album.collectionId }
+                      />
+                    ))}
+                  </div>
                 </p>)
           }
         </div>
